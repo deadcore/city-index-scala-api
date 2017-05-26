@@ -16,9 +16,17 @@ class HttpJwsClient(implicit executionContext: ExecutionContext) extends WsClien
 class HttpJWsRequest(http: HttpRequest)(implicit executionContext: ExecutionContext) extends WSRequest {
   override def withHeaders(tuple: (String, String)): WSRequest = new HttpJWsRequest(http.header(tuple._1, tuple._2))
 
+  override def withHeaders(tuple: (String, String)*): WSRequest = new HttpJWsRequest(http.headers(tuple))
+
   override def post[T <: AnyRef](body: T)(implicit formats: Formats): Future[WSResponse] = Future {
     blocking {
       http.postData(write(body)(formats)).asString
+    }
+  }
+
+  override def get: Future[WSResponse] = Future {
+    blocking {
+      http.asString
     }
   }
 
@@ -26,5 +34,8 @@ class HttpJWsRequest(http: HttpRequest)(implicit executionContext: ExecutionCont
     override def json: JsonAST.JValue = JsonMethods.parse(response.body)
 
     override def status: Int = response.code
+
+    override def body: String = response.body
   }
+
 }
