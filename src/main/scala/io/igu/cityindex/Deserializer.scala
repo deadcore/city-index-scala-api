@@ -1,4 +1,4 @@
-package io.igu.cityindex.client
+package io.igu.cityindex
 
 import org.json4s.{CustomSerializer, DefaultFormats, JObject, JValue}
 

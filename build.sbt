@@ -1,12 +1,15 @@
-name := "city-index-api-test"
+name := "city-index-api"
 
 version := "1.0"
 
 scalaVersion := "2.12.2"
 
+resolvers += "Weswit repository" at "http://www.lightstreamer.com/repo/maven"
+
 libraryDependencies ++= Seq(
   "org.scalaj" %% "scalaj-http" % "2.3.0",
   "org.json4s" %% "json4s-native" % "3.5.0",
+  "com.lightstreamer" % "ls-javase-client" % "4.1.1",
   "org.scalatest" %% "scalatest" % "3.0.1",
   "org.mockito" % "mockito-all" % "1.10.19" % Test
 ).map(_

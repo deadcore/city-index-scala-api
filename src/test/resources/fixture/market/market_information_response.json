@@ -1,0 +1,171 @@
+{
+  "MarketInformation": {
+    "MarketId": 99717,
+    "Name": "HSBC Holdings (LSE) CFD",
+    "ExchangeId": 29,
+    "ExchangeName": "London Stock Exchange",
+    "MarginFactor": 5,
+    "MinMarginFactor": null,
+    "MaxMarginFactor": null,
+    "ClientMarginFactor": null,
+    "MarginFactorUnits": 26,
+    "MinDistance": 0,
+    "MinDistanceUnits": 26,
+    "WebMinSize": 50,
+    "MaxSize": 1099405,
+    "MarketSizesCurrencyCode": "GBP",
+    "MaxLongSize": 23079,
+    "MaxShortSize": 23079,
+    "Market24H": false,
+    "PriceDecimalPlaces": 3,
+    "DefaultQuoteLength": 10,
+    "TradeOnWeb": true,
+    "LimitUp": false,
+    "LimitDown": false,
+    "LongPositionOnly": false,
+    "CloseOnly": false,
+    "MarketEod": [
+      {
+        "MarketEodUnit": "Time of Day",
+        "MarketEodAmount": 1745
+      }
+    ],
+    "PriceTolerance": 2,
+    "ConvertPriceToPipsMultiplier": 10000,
+    "MarketSettingsTypeId": 2,
+    "MarketSettingsType": "CFD",
+    "MobileShortName": "HSBC",
+    "CentralClearingType": "LCH",
+    "CentralClearingTypeDescription": "London Clearing House",
+    "MarketCurrencyId": 6,
+    "PhoneMinSize": 200,
+    "DailyFinancingAppliedAtUtc": "/Date(1496767500000)/",
+    "NextMarketEodTimeUtc": "/Date(1496853900000)/",
+    "TradingStartTimeUtc": "/Date(1496818800000)/",
+    "TradingEndTimeUtc": "/Date(1496849400000)/",
+    "MarketPricingTimes": [
+      {
+        "DayOfWeek": 1,
+        "StartTimeUtc": {
+          "UtcDateTime": "/Date(1496818740000)/",
+          "OffsetMinutes": 60
+        },
+        "EndTimeUtc": {
+          "UtcDateTime": "/Date(1496849400000)/",
+          "OffsetMinutes": 60
+        }
+      },
+      {
+        "DayOfWeek": 2,
+        "StartTimeUtc": {
+          "UtcDateTime": "/Date(1496818740000)/",
+          "OffsetMinutes": 60
+        },
+        "EndTimeUtc": {
+          "UtcDateTime": "/Date(1496849400000)/",
+          "OffsetMinutes": 60
+        }
+      },
+      {
+        "DayOfWeek": 3,
+        "StartTimeUtc": {
+          "UtcDateTime": "/Date(1496818740000)/",
+          "OffsetMinutes": 60
+        },
+        "EndTimeUtc": {
+          "UtcDateTime": "/Date(1496849400000)/",
+          "OffsetMinutes": 60
+        }
+      },
+      {
+        "DayOfWeek": 4,
+        "StartTimeUtc": {
+          "UtcDateTime": "/Date(1496818740000)/",
+          "OffsetMinutes": 60
+        },
+        "EndTimeUtc": {
+          "UtcDateTime": "/Date(1496849400000)/",
+          "OffsetMinutes": 60
+        }
+      },
+      {
+        "DayOfWeek": 5,
+        "StartTimeUtc": {
+          "UtcDateTime": "/Date(1496818740000)/",
+          "OffsetMinutes": 60
+        },
+        "EndTimeUtc": {
+          "UtcDateTime": "/Date(1496849400000)/",
+          "OffsetMinutes": 60
+        }
+      }
+    ],
+    "MarketBreakTimes": [],
+    "MarketSpreads": [
+      {
+        "SpreadTimeUtc": null,
+        "Spread": 0,
+        "SpreadUnits": 27
+      }
+    ],
+    "GuaranteedOrderPremium": 0.25,
+    "GuaranteedOrderPremiumUnits": 2,
+    "GuaranteedOrderMinDistance": 5,
+    "GuaranteedOrderMinDistanceUnits": 26,
+    "PriceToleranceUnits": 0.1,
+    "MarketTimeZoneOffsetMinutes": 60,
+    "QuantityConversionFactor": 100,
+    "PointFactorDivisor": 100,
+    "BetPer": 1,
+    "MarketUnderlyingTypeId": 8,
+    "MarketUnderlyingType": "Equity - Common Stock",
+    "AllowGuaranteedOrders": true,
+    "OrdersAwareMargining": true,
+    "OrdersAwareMarginingMinimum": 80,
+    "CommissionChargeMinimum": 15,
+    "CommissionRate": 0.001,
+    "CommissionRateUnits": 12,
+    "ExpiryUtc": null,
+    "FutureRolloverUTC": null,
+    "AllowRollover": false,
+    "ExpiryBasisId": 1,
+    "ExpiryBasisText": "",
+    "StepMargin": {
+      "EligibleForStepMargin": true,
+      "StepMarginConfigured": true,
+      "InheritedFromParentAccountOperator": true,
+      "Bands": [
+        {
+          "LowerBound": 0,
+          "MarginFactor": 4
+        },
+        {
+          "LowerBound": 49000,
+          "MarginFactor": 6
+        },
+        {
+          "LowerBound": 247000,
+          "MarginFactor": 8
+        },
+        {
+          "LowerBound": 1234000,
+          "MarginFactor": 12
+        },
+        {
+          "LowerBound": 4935000,
+          "MarginFactor": 30
+        }
+      ]
+    },
+    "OptionTypeId": null,
+    "OptionType": null,
+    "StrikePrice": null,
+    "MarketTypeId": 2,
+    "MarketType": "Ordinary Market",
+    "Weighting": 300,
+    "FxFinancing": null,
+    "UnderlyingRicCode": "HSBA.L",
+    "NewsUnderlyingOverrideType": null,
+    "NewsUnderlyingOverrideCode": null
+  }
+}

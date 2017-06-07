@@ -1,4 +1,4 @@
-package io.igu.cityindex.client
+package io.igu.cityindex
 
 import org.json4s.native.JsonMethods
 import org.json4s.native.Serialization.write
@@ -14,7 +14,6 @@ class HttpJwsClient(implicit executionContext: ExecutionContext) extends WsClien
 
 
 class HttpJWsRequest(http: HttpRequest)(implicit executionContext: ExecutionContext) extends WSRequest {
-  override def withHeaders(tuple: (String, String)): WSRequest = new HttpJWsRequest(http.header(tuple._1, tuple._2))
 
   override def withHeaders(tuple: (String, String)*): WSRequest = new HttpJWsRequest(http.headers(tuple))
 
@@ -36,6 +35,12 @@ class HttpJWsRequest(http: HttpRequest)(implicit executionContext: ExecutionCont
     override def status: Int = response.code
 
     override def body: String = response.body
+
   }
 
+  override def withQueryString(parameters: (String, String)*): WSRequest = new HttpJWsRequest(http.params(parameters))
+
+  override def withOptQueryString(parameters: (String, Option[String])*): WSRequest = {
+    withQueryString(parameters.filter(_._2.isDefined).map((x) => x._1 -> x._2.get): _*)
+  }
 }
