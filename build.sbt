@@ -1,3 +1,4 @@
+import sbtrelease.ReleasePlugin.autoImport.ReleaseTransformations._
 import sbtrelease.{Version, versionFormatError}
 
 organization := "io.igu"
@@ -30,4 +31,20 @@ publishTo := Some(
     Opts.resolver.sonatypeSnapshots
   else
     Opts.resolver.sonatypeStaging
+)
+
+
+releaseProcess := Seq[ReleaseStep](
+  checkSnapshotDependencies,
+  inquireVersions,
+  runClean,
+  runTest,
+  setReleaseVersion,
+  commitReleaseVersion,
+  tagRelease,
+  ReleaseStep(action = Command.process("publishSigned", _)),
+  setNextVersion,
+  commitNextVersion,
+  ReleaseStep(action = Command.process("sonatypeReleaseAll", _)),
+  pushChanges
 )
