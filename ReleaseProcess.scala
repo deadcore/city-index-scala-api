@@ -1,8 +1,3 @@
-import com.typesafe.sbt.SbtNativePackager.Docker
-import sbt.Keys._
-import sbtrelease.ReleasePlugin.autoImport.ReleaseTransformations._
-import sbtrelease.ReleasePlugin.autoImport._
-
 object ReleaseProcess {
   val default: Seq[ReleaseStep] = Seq[ReleaseStep](
     checkSnapshotDependencies,
