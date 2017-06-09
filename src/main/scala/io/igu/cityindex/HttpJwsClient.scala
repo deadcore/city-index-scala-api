@@ -9,7 +9,6 @@ import scalaj.http.{Http, HttpRequest, HttpResponse}
 
 class HttpJwsClient(implicit executionContext: ExecutionContext) extends WsClient {
   def url(url: String): WSRequest = new HttpJWsRequest(Http(url))
-
 }
 
 
