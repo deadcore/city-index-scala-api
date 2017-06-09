@@ -3,8 +3,9 @@ package io.igu.cityindex.example
 import io.igu.cityindex.accountInformation.ClientAndTradingAccountDirective
 import io.igu.cityindex.authentication.LogonDirective
 import io.igu.cityindex.authentication.model.LogOnRequest
-import io.igu.cityindex.market.{MarketInformationDirective, MarketSearchDirective}
 import io.igu.cityindex.market.model.MarketSearchRequest
+import io.igu.cityindex.market.{MarketInformationDirective, MarketSearchDirective}
+import io.igu.cityindex.prices.PriceDirective
 import io.igu.cityindex.{AuthenticationToken, CityIndexDirective, HttpJwsClient, WsClient}
 import org.scalatest.concurrent.{PatienceConfiguration, ScalaFutures}
 import org.scalatest.time.{Millis, Seconds, Span}
@@ -20,7 +21,7 @@ object LogonExample extends App with ScalaFutures with PatienceConfiguration {
 
   val wsClient = new HttpJwsClient
 
-  val cityIndexClient = new CityIndexDirective with LogonDirective with MarketSearchDirective with ClientAndTradingAccountDirective with MarketInformationDirective {
+  val cityIndexClient = new CityIndexDirective with LogonDirective with MarketSearchDirective with ClientAndTradingAccountDirective with MarketInformationDirective with PriceDirective {
     def environment = "https://ciapi.cityindex.com"
 
     def client: WsClient = wsClient
@@ -39,7 +40,7 @@ object LogonExample extends App with ScalaFutures with PatienceConfiguration {
     cfdProductType = true,
     binaryProductType = false,
     includeOptions = false,
-    query = "HSBC Holdings (LSE) CFD"
+    query = "UK 100 CFD"
   )).futureValue
 
   val market = marketSearch.markets.head
@@ -49,5 +50,10 @@ object LogonExample extends App with ScalaFutures with PatienceConfiguration {
   val marketInformation = cityIndexClient.information(authenticationToken)(market.marketId).futureValue
 
   logger.info(s"Market Information: $marketInformation")
+
+  val ftsePrice = cityIndexClient.price(authenticationToken)(market.marketId)
+
+
+  ftsePrice.subscribe(price => logger.info(s"New Price: $price"))
 
 }

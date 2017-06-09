@@ -1,6 +1,6 @@
 package io.igu.cityindex.market.model
 
-case class MarketInformationResponse(MarketInformation: MarketInformation)
+case class MarketInformationResponse(marketInformation: MarketInformation)
 
 case class MarketEod(marketEodUnit: String,
                      marketEodAmount: Double)
@@ -16,17 +16,14 @@ case class MarketSpreads(spreadTimeUtc: String,
                          spread: Double,
                          spreadUnits: Double)
 
-case class Bands(lowerBound: Double,
-                 marginFactor: Double)
+case class Bands(lowerBound: Double, marginFactor: Double)
 
-case class StepMargin(
-                       eligibleForStepMargin: Boolean,
-                       stepMarginConfigured: Boolean,
-                       inheritedFromParentAccountOperator: Boolean,
-                       bands: List[Bands]
-                     )
+case class StepMargin(eligibleForStepMargin: Boolean,
+                      stepMarginConfigured: Boolean,
+                      inheritedFromParentAccountOperator: Boolean,
+                      bands: List[Bands])
 
-case class MarketInformation(marketId: Double,
+case class MarketInformation(marketId: Int,
                              name: String,
                              exchangeId: Double,
                              exchangeName: String,
@@ -82,7 +79,7 @@ case class MarketInformation(marketId: Double,
                              ordersAwareMargining: Boolean,
                              ordersAwareMarginingMinimum: Double,
                              commissionChargeMinimum: Double,
-                             commissionRate: Double,
+                             commissionRate: Option[Double],
                              commissionRateUnits: Double,
                              expiryUtc: String,
                              futureRolloverUTC: String,
