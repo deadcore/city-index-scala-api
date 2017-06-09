@@ -1,8 +1,12 @@
+import sbtrelease.{Version, versionFormatError}
+
 organization := "io.igu"
 
 name := "city-index-scala-api"
 
 scalaVersion := "2.12.2"
+
+releaseNextVersion := { ver => Version(ver).map(_.bumpBugfix.string).getOrElse(versionFormatError) }
 
 libraryDependencies ++= Seq(
   "org.scalaj" %% "scalaj-http" % "2.3.0",
