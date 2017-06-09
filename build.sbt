@@ -1,6 +1,6 @@
-name := "city-index-api"
+organization := "io.igu"
 
-version := "1.0"
+name := "city-index-scala-api"
 
 scalaVersion := "2.12.2"
 
@@ -18,3 +18,13 @@ libraryDependencies ++= Seq(
   "ch.qos.logback" % "logback-classic" % "1.2.1",
   "org.codehaus.janino" % "janino" % "2.7.8"
 )
+
+credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
+
+publishTo <<= version { (v: String) =>
+  val nexus = "https://oss.sonatype.org/"
+  if (v.trim.endsWith("SNAPSHOT"))
+    Some("snapshots" at nexus + "content/repositories/snapshots")
+  else
+    Some("releases" at nexus + "service/local/staging/deploy/maven2")
+}
