@@ -7,5 +7,5 @@ case class LogOnRequest(userName: String,
                         appKey: Option[String] = None)
 
 object LogOnRequest {
-  def apply(password: String, userName: String): LogOnRequest = new LogOnRequest(userName = userName, password = password)
+  def apply(userName: String, password: String): LogOnRequest = new LogOnRequest(userName = userName, password = password)
 }
